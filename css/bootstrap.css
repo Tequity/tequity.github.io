@@ -1135,6 +1135,7 @@ img {
 }
 .img-circle {
   border-radius: 50%;
+
 }
 hr {
   margin-top: 20px;
@@ -6048,6 +6049,8 @@ button.close {
 }
 .carousel {
   position: relative;
+
+
 }
 .carousel-inner {
   position: relative;
