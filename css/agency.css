@@ -274,9 +274,9 @@ header {
 }
 
 header .logo {
-    background-image: -webkit-linear-gradient(top, rgba(0,0,0,.7), rgba(0,0,0,.7)),url(../img/tequitybanner.jpg);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,.5), rgba(0,0,0,.5)),url(../img/tequitybanner.jpg);
     background-position: center center;
-    height: 800px;
+    height: 900px;
     width: 100%;
     /*left: -200px;
     float: left;*/
