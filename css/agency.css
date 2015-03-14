@@ -207,7 +207,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a {
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #949494;
+    color: #fff;
 }
 
 .navbar-default .nav li a:hover,
@@ -240,7 +240,13 @@ fieldset[disabled] .btn-xl.active {
     }
 
     .navbar-default .navbar-brand {
-        font-size: 2em;
+        background-image: url(../img/logo.png);
+        background-position: center center;
+        background-size: 100%; 
+        width: 60px;
+        height: 60px;
+        top: 0px;
+        background-repeat: no-repeat;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
@@ -268,11 +274,10 @@ header {
 }
 
 header .logo {
-    background-image: url(../img/logo.png);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,.7), rgba(0,0,0,.7)),url(../img/tequitybanner.jpg);
     background-position: center center;
-    height: 300px;
-    width: 50%;
-    top: 250px;
+    height: 800px;
+    width: 100%;
     /*left: -200px;
     float: left;*/
      background-repeat: none;
