@@ -23,6 +23,7 @@
 # with_layout :admin do
 #   page "/admin/*"
 # end
+ignore "/README.md"
 
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
@@ -69,6 +70,14 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+
+#Copy over README
+after_build do |builder|
+  src = File.join(config[:source],"Readme.md")
+  dst = File.join(config[:build_dir],"Readme.md")
+  builder.source_paths << File.dirname(__FILE__)
+  builder.copy_file(src,dst)
 end
 
 #Deployment to Github pages
