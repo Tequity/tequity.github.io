@@ -1,0 +1,17 @@
+//Mixins
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+//Functions
+@function remify($num) {
+  @if unit($num) is "px" or unit($num) is ""  {
+    @return $num / ($num * 0 + 16) + 0rem;
+  }
+  @else {
+    @return $num
+  }
+}

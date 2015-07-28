@@ -1,0 +1,9 @@
+.navbar {
+  @include clearfix;
+}
+.navbar-title {
+  float: left;
+}
+.navbar-navigation  {
+  float: right;
+}
