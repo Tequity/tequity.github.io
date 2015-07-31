@@ -9,7 +9,7 @@
 //Functions
 @function remify($num) {
   @if unit($num) is "px" or unit($num) is ""  {
-    @return $num / ($num * 0 + 16) + 0rem;
+    @return $num / ($num * 0 + 16) + 0rem; //adding 0rem changes units
   }
   @else {
     @return $num

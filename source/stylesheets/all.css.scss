@@ -1,7 +1,7 @@
 //Vendor dependencies
 @import "normalize";
 @import "compass/utilities/general/";
-
+@import "defaults";
 @charset "utf-8";
 
 //Custom utility functions
@@ -13,7 +13,9 @@
 @import "zindex";
 
 //Components
+@import "grid";
 @import "navbar";
+@import "footer";
 
 .logo {
   background: url('../images/tequity-logo-75.png') no-repeat;
