@@ -3,6 +3,7 @@
 ###
 
 # Change Compass configuration
+activate :compass
 # compass_config do |config|
 #   config.output_style = :compact
 # end
@@ -88,3 +89,10 @@ activate :deploy do |deploy|
 end
 
 activate :directory_indexes
+
+#Configure building Bower assets
+sprockets.append_path File.join root, 'bower_components'
+assets = ['jquery'] #supports package names, as well as specific paths
+assets.each do |asset|
+  sprockets.import_asset asset
+end

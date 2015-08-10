@@ -1,0 +1,16 @@
+$column-number = 16
+$gutter = 1.25rem;
+.row:after  {
+  @include clearfix;
+}
+[class*='columns-'] {
+  padding-right: $gutter;
+}
+[class*='columns-']:last-of-type  {
+  padding-right: 0;
+}
+@for i from 1 through $column-number  {
+  .columns-#{$i} {
+    width: $i / $column-number % 100%;
+  }
+}
