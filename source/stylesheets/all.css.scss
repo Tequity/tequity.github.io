@@ -1,21 +1,24 @@
 //Vendor dependencies
-@import "normalize";
-@import "compass/utilities/general/";
-@import "defaults";
-@charset "utf-8";
+@import 'normalize';
+@import 'compass/utilities/general/';
+@import 'defaults';
+@charset 'utf-8';
 
 //Custom utility functions
-@import "util";
+@import 'util';
+
+//Media queries
+@import 'mediaqueries';
 
 //Aesthetics
-@import "color";
-@import "typography";
-@import "zindex";
+@import 'color';
+@import 'typography';
+@import 'zindex';
 
 //Components
-@import "grid";
-@import "navbar";
-@import "footer";
+@import 'grid';
+@import 'navbar';
+@import 'footer';
 
 .logo {
   background: url('../images/tequity-logo-75.png') no-repeat;

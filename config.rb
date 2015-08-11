@@ -3,7 +3,6 @@
 ###
 
 # Change Compass configuration
-activate :compass
 # compass_config do |config|
 #   config.output_style = :compact
 # end

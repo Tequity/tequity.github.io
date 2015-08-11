@@ -1,0 +1,7 @@
+@import 'util';
+
+$media-xsmall: 'screen and (min-width: ' + emify(320px)')';
+$media-small: 'screen and (min-width:' + emify(480px)')';
+$media-medium: 'screen and (min-width: ' + emify(768px)')';
+$media-large: 'screen and (min-width: ' + emify(960px)')';
+

@@ -15,3 +15,12 @@
     @return $num
   }
 }
+
+@function emify($num) {
+  @if unit($num) is "px" or unit($num) is ""  {
+    @return $num / ($num * 0 + 16) + 0em;
+  }
+  @else {
+    @return $num
+  }
+}

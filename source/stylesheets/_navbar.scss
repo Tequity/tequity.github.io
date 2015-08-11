@@ -7,3 +7,10 @@
 .navbar-navigation  {
   float: right;
 }
+.navbar-navigation ul {
+  margin: 0;
+  padding: 0;
+}
+.navbar-navigation ul, .navbar-navigation li {
+  display: inline-block;
+}

@@ -1,5 +1,7 @@
-$column-number = 16
-$gutter = 1.25rem;
+@import 'mediaqueries';
+
+$column-number: 16;
+$gutter: 1.25rem;
 .row:after  {
   @include clearfix;
 }
@@ -9,8 +11,23 @@ $gutter = 1.25rem;
 [class*='columns-']:last-of-type  {
   padding-right: 0;
 }
-@for i from 1 through $column-number  {
+@for $i from 1 through $column-number  {
   .columns-#{$i} {
     width: $i / $column-number % 100%;
+  }
+  @media #{$media-small} {
+    .columns-#{i}-small {
+      width: $i / $column-number % 100;
+    }
+  }
+  @media #{$media-medium} {
+    .columns-#{i}-medium {
+      width: $i / $column-number % 100;
+    }
+  }
+  @media #{$media-large} {
+    .columns-#{i}-large {
+      width: $i / $column-number % 100;
+    }
   }
 }
