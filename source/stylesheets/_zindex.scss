@@ -1,0 +1,10 @@
+$zi-1: 100;
+$zi-2: 200;
+
+//buttons
+.button:before  {
+  z-index: $zi-1;
+}
+.button {
+  z-index: $zi-2;
+}

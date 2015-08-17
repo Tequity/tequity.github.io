@@ -1,16 +1,18 @@
-.navbar
-  .navbar-title
-    .logo
-  %nav.navbar-navigation
-    %ul
-      %li
-        =link_to "Events", "#events"
-      %li
-        =link_to "About Us", "#about"
-      %li
-        =link_to "Get Involved", "#get-involved"
+.navbar.navbar--absolute
+  .container
+    .columns-12.columns--centered
+      .navbar-title
+        .logo
+      %nav.navbar-navigation
         %ul
           %li
-            =link_to "Students", "#students"
+            =link_to "Events", "#events"
           %li
-            =link_to "Companies", "#companies"
+            =link_to "About Us", "#about"
+          %li
+            =link_to "Get Involved", "#get-involved"
+            %ul
+              %li
+                =link_to "Students", "#students"
+              %li
+                =link_to "Companies", "#companies"

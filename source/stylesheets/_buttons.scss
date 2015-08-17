@@ -1,0 +1,34 @@
+.button-list  {
+  margin: .75rem 0;
+}
+
+.button-list .button  {
+  display: inline-block;
+}
+.button-list .button:not(:last-child) {
+  margin-right: .5rem;
+}
+.button {
+  border-radius: .25rem;
+  padding: .5rem 1.5rem;
+  border: .125rem solid white;
+  position: relative;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+.button:before {
+  content: '';
+  background-color: white;
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 200ms ease;
+}
+.button:hover {
+  color: $grey;
+}
+.button:hover:before  {
+  width: 100%;
+}

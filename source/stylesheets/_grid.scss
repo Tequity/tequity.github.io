@@ -1,33 +1,65 @@
 @import 'mediaqueries';
 
-$column-number: 16;
-$gutter: 1.25rem;
+$column-number: 12;
+$gutter: .3125rem;
+
+.container  {
+  width: 5 / 6 * 100%;
+  margin: auto;
+  @media #{$media-medium} {
+    width: 80%;
+  }
+}
+
 .row:after  {
   @include clearfix;
 }
 [class*='columns-'] {
   padding-right: $gutter;
+  padding-left: $gutter;
+  @media #{$media-medium}  {
+    $gutter: 1.25rem;
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
 }
-[class*='columns-']:last-of-type  {
+[class*='columns-']:not(.columns--centered) {
+  padding-right: $gutter;
+  padding-left: 0;
+  @media #{$media-medium}  {
+    $gutter: 1.25rem;
+    padding-right: $gutter;
+  }
+}
+[class*='columns-']:last-of-type:not(.columns--centered)  {
   padding-right: 0;
 }
 @for $i from 1 through $column-number  {
   .columns-#{$i} {
-    width: $i / $column-number % 100%;
+    width: $i / $column-number * 100%;
   }
+}
+@for $i from 1 through $column-number  {
   @media #{$media-small} {
-    .columns-#{i}-small {
-      width: $i / $column-number % 100;
+    .columns-#{$i}-small {
+      width: $i / $column-number * 100%;
     }
   }
+}
+@for $i from 1 through $column-number  {
   @media #{$media-medium} {
-    .columns-#{i}-medium {
-      width: $i / $column-number % 100;
+    .columns-#{$i}-medium {
+      width: $i / $column-number * 100%;
     }
   }
+}
+@for $i from 1 through $column-number  {
   @media #{$media-large} {
-    .columns-#{i}-large {
-      width: $i / $column-number % 100;
+    .columns-#{$i}-large {
+      width: $i / $column-number * 100%;
     }
   }
+}
+.columns--centered {
+  margin: auto;
 }

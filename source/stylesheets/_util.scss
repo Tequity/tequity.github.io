@@ -6,6 +6,11 @@
     clear: both;
   }
 }
+@mixin relative-center  {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 //Functions
 @function remify($num) {
   @if unit($num) is "px" or unit($num) is ""  {
@@ -23,4 +28,8 @@
   @else {
     @return $num
   }
+}
+//Utility classes
+.text--centered {
+  text-align: center;
 }

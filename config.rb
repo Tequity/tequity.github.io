@@ -91,7 +91,7 @@ activate :directory_indexes
 
 #Configure building Bower assets
 sprockets.append_path File.join root, 'bower_components'
-assets = ['jquery'] #supports package names, as well as specific paths
+assets = ['jquery', 'underscore'] #supports package names, as well as specific paths
 assets.each do |asset|
   sprockets.import_asset asset
 end

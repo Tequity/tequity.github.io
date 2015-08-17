@@ -17,27 +17,11 @@
 
 //Components
 @import 'grid';
-@import 'navbar';
-@import 'footer';
 
-@-webkit-keyframes welcome {
-  from {
-    -webkit-transform: scale(0);
-    opacity: 0;
-  }
-  50% {
-   -webkit-transform: scale(0);
-   opacity: 0;
-  }
-  82.5% {
-    -webkit-transform: scale(1.03);
-    -webkit-animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: scale(1);
-  }
-}
+@import 'buttons';
+@import 'footer';
+@import 'navbar';
+@import 'segment';
 
 
 .welcome-banner-container {
@@ -45,32 +29,6 @@
   background-color: #000;
   height: 600px;
   background-image: url("url here"); }
-  .text-container {
-    margin: 0px auto;
-    width: 600px;
-    height: 200px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 1px solid #fff;}
-  #title {
-    margin: 0px auto;
-    width: 90%;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 30px;
-    padding: 15px 0px 5px 0px; }
-
-  #text {
-    margin: 0px auto;
-    width: 90%;
-    color: #fff;
-    font-height: 16px;
-    padding: 15px;
-    line-height: 1.5em;
-
-     }
 
 .button-container {
   width: 270px;

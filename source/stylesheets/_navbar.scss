@@ -1,5 +1,12 @@
 .navbar {
   @include clearfix;
+  width: 100%;
+}
+.navbar--absolute {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 2.5rem 0;
+  color: white;
 }
 .navbar-title {
   float: left;
@@ -12,5 +19,14 @@
   padding: 0;
 }
 .navbar-navigation ul, .navbar-navigation li {
+  display: inline-block;
+}
+.navbar-navigation li {
+  position: relative;
+}
+
+.navbar-navigation a:not(:last-child):after  {
+  content: 'fuck';
+  position: absolute;
   display: inline-block;
 }

@@ -1,0 +1,24 @@
+.segment  {
+  padding: 4rem 0;
+}
+.segment--full {
+  height: 100%;
+  padding: 0;
+}
+.segment--full .segment-contents {
+  @include relative-center;
+}
+.segment--main  {
+  background: linear-gradient(69deg, rgba($purple, .75), rgba($teal, .75)),
+              url(image_path('main-image.jpg')) center no-repeat;
+  background-size: cover;
+  color: white;
+}
+.segment--teal  {
+  background-color: $teal;
+  color: white;
+}
+.segment--purple  {
+  background-color: $purple;
+  color: white;
+}
