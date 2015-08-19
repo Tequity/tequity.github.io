@@ -15,6 +15,11 @@
   position: relative;
   transition: all 200ms ease;
   cursor: pointer;
+  // This line creates a new stacking context for the button.
+  // Therefore, negative z-indexed children (including pseudo-elements) aren't rendered behind
+  // parent elements.
+  // See https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context
+  opacity: .9999;
 }
 .button:before {
   content: '';
