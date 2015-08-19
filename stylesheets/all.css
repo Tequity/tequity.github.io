@@ -364,7 +364,7 @@ a {
 .text--centered {
   text-align: center; }
 
-/* line 6, /Users/lily/programming/tequity-website/source/stylesheets/_color.scss */
+/* line 10, /Users/lily/programming/tequity-website/source/stylesheets/_color.scss */
 .highlight {
   background-color: #FAEC5B;
   color: #4E4E4E;
@@ -400,13 +400,9 @@ h1 {
 .subhead {
   font-size: 1.5rem; }
 
-/* line 5, /Users/lily/programming/tequity-website/source/stylesheets/_zindex.scss */
+/* line 6, /Users/lily/programming/tequity-website/source/stylesheets/_zindex.scss */
 .button:before {
-  z-index: 100; }
-
-/* line 8, /Users/lily/programming/tequity-website/source/stylesheets/_zindex.scss */
-.button {
-  z-index: 200; }
+  z-index: -100; }
 
 /* line 6, /Users/lily/programming/tequity-website/source/stylesheets/_grid.scss */
 .container {
@@ -661,9 +657,10 @@ h1 {
   border: .125rem solid white;
   position: relative;
   transition: all 200ms ease;
-  cursor: pointer; }
+  cursor: pointer;
+  opacity: .9999; }
 
-/* line 19, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
+/* line 24, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
 .button:before {
   content: '';
   background-color: white;
@@ -674,11 +671,11 @@ h1 {
   left: 0;
   transition: all 200ms ease; }
 
-/* line 29, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
+/* line 34, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
 .button:hover {
   color: #4E4E4E; }
 
-/* line 32, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
+/* line 37, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
 .button:hover:before {
   width: 100%; }
 
@@ -754,12 +751,12 @@ h1 {
 
 /* line 17, /Users/lily/programming/tequity-website/source/stylesheets/_segment.scss */
 .segment--teal {
-  background-color: #0DEFC7;
+  background-color: #36D9B8;
   color: white; }
 
 /* line 21, /Users/lily/programming/tequity-website/source/stylesheets/_segment.scss */
 .segment--purple {
-  background-color: #7550EC;
+  background-color: #5E41BF;
   color: white; }
 
 /* line 27, /Users/lily/programming/tequity-website/source/stylesheets/all.css.scss */
@@ -775,26 +772,14 @@ h1 {
   height: 30px;
   margin: 0px auto; }
 
-/* line 38, /Users/lily/programming/tequity-website/source/stylesheets/all.css.scss */
-#button {
-  width: 100px;
-  height: 20px;
-  display: inline-block;
-  margin: 5px;
-  font-size: 14px;
-  border: 1px solid #fff;
-  border-radius: 5%;
-  color: #fff;
-  padding: 5px 10px; }
-
-/* line 53, /Users/lily/programming/tequity-website/source/stylesheets/all.css.scss */
+/* line 39, /Users/lily/programming/tequity-website/source/stylesheets/all.css.scss */
 .get-involved-container {
   width: 100%;
   background-color: #4E689C;
   height: 300px;
   background-image: url("url here"); }
 
-/* line 60, /Users/lily/programming/tequity-website/source/stylesheets/all.css.scss */
+/* line 46, /Users/lily/programming/tequity-website/source/stylesheets/all.css.scss */
 .logo {
   background: url("../images/tequity-logo-75.png") no-repeat;
   background-size: 100%;
