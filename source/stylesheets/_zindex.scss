@@ -3,6 +3,9 @@ $zi-1: 100;
 $zi-2: 200;
 
 //buttons
-.button:before  {
-  z-index: $zi-neg1;
-}
+$zi-buttonOverlay: $zi-neg1;
+
+//navigation
+$zi-navItemMobile: $zi-neg1;
+$zi-navOverlay: $zi-1;
+$zi-nav: $zi-2;

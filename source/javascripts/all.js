@@ -1,4 +1,3 @@
-//= require_tree .
 //= require "jquery"
 //= require "underscore"
-//= requite "nav"
+//= require_tree .

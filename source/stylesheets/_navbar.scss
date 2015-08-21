@@ -1,11 +1,12 @@
 .navbar {
   @include clearfix;
   width: 100%;
+  z-index: $zi-nav;
 }
 .navbar--absolute {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0);
   padding: 2.5rem 0;
+  background-color: rgba(255, 255, 255, 0);
   color: white;
 }
 .navbar-title {
@@ -19,14 +20,178 @@
   padding: 0;
 }
 .navbar-navigation ul, .navbar-navigation li {
-  display: inline-block;
+  display: block;
+  @media #{$media-medium} {
+    display: inline-block;
+  }
 }
 .navbar-navigation li {
   position: relative;
 }
+.navbar-navigation a   {
+  display: block;
+  padding: 1.25rem 12.5%;
+  position: relative;
+  opacity: .99; //See stacking context comment in buttons.scss
+  @media #{$media-medium} {
+    display: inline;
+    padding: 0;
+    opacity: 1;
+  }
+}
 
-.navbar-navigation a:not(:last-child):after  {
-  content: 'fuck';
+//active state for mobile
+.navbar-navigation a::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 200ms ease;
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $zi-navItemMobile;
+  @media #{$media-medium} {
+    content: unset;
+  }
+}
+.navbar-navigation a:hover::after,
+.navbar-navigation a:active::after {
+  transform: scaleX(1);
+}
+.navbar-navigation li:nth-child(3n + 1) > a::after {
+  background-color: $purple;
+}
+.navbar-navigation li:nth-child(3n + 2) > a::after {
+  background-color: $teal;
+}
+.navbar-navigation li:nth-child(3n) > a::after {
+  background-color: $gold;
+}
+
+//add extra padding to nested navs
+.navbar-navigation a:not(:last-child) ~ ul a::before  {
+  content: '';
+  padding-left: 12.5%;
+}
+.navbar-navigation > ul {
+  position: absolute;
+  transform: translateX(100%);
+  right: 0;
+  top: 100%;
+  width: 0%; //prevent nav from showing on scroll
+  overflow: hidden;
+  transition: transform 400ms ease, width 1ms 400ms linear;
+  background-color: white;
+  color: $grey;
+  @media #{$media-medium} {
+    display: inline-block;
+    position: static;
+    background-color: inherit;
+    color: inherit;
+    width: auto;
+    transform: translateX(0%);
+    overflow: visible;
+  }
+}
+.navbar-navigation a:not(:last-child) ~ ul  {
+  display: none;
+}
+//add arrows next to nested navs
+.navbar-navigation a:not(:last-child):before  {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 12.5%;
+  margin-top: -.125rem;
   display: inline-block;
+  border-style: solid;
+  border-width: .5rem .5rem 0 .5rem;
+  border-color: currentColor transparent transparent transparent;
+  @media #{$media-large}  {
+    margin-right: -1.25rem;
+  }
+}
+
+//active state
+.navbar--active.navbar--absolute  {
+  background-color: white;
+  color: $purple;
+  @media #{$media-medium} {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+  }
+}
+.navbar--active .navbar-navigation > ul {
+  transform: translateX(0%);
+  transition: transform 400ms ease, width 1ms linear;
+  width: 75%;
+  @media #{$media-small}  {
+    width: 50%;
+  }
+  @media #{$media-medium} {
+    width: 100%;
+  }
+}
+
+//overlay
+.navbar-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(white, .5);
+  display: none;
+  z-index: $zi-navOverlay;
+}
+
+.navbar.navbar--active + .navbar-overlay  {
+  display: block;
+  @media #{$media-medium} {
+    display: none;
+  }
+}
+
+//Hamburger menu
+$bar-top: '.bar::before';
+$bar-middle: '.bar';
+$bar-bottom: '.bar::after';
+
+$barHeight: .25rem;
+$barWidth: 2.5rem;
+$barSpacing: .625rem;
+$barRatio: (barHeight / barWidth) + 0; //coerce to unitless value
+$animationSpeed: 200ms;
+$half: animationSpeed / 2;
+$easing: 'ease-in-out';
+
+.bars {
+  cursor: pointer;
+  display: inline-block;
+  @media #{$media-medium} {
+    display: none;
+  }
+}
+#{$bar-top},
+#{$bar-middle},
+#{$bar-bottom}  {
+  height: $barHeight;
+  width: $barWidth;
+  background-color: $purple;
+  display: block;
+  position: relative;
+}
+
+//Safari has a really lame currentColor bug
+.navbar--absolute:not(.navbar--active) #{$bar-top},
+.navbar--absolute:not(.navbar--active) #{$bar-middle},
+.navbar--absolute:not(.navbar--active) #{$bar-bottom}  {
+  background-color: white;
+}
+
+#{$bar-top},
+#{$bar-bottom}  {
+  content: '';
 }
