@@ -45,7 +45,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  transform: scaleX(0);
+  transform: scale(0, 1);
   transform-origin: left;
   transition: all 200ms ease;
   position: absolute;
@@ -58,7 +58,7 @@
 }
 .navbar-navigation a:hover::after,
 .navbar-navigation a:active::after {
-  transform: scaleX(1);
+  transform: scale(1, 1);
 }
 .navbar-navigation li:nth-child(3n + 1) > a::after {
   background-color: $purple;

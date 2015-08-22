@@ -30,7 +30,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: scaleX(0);
+  transform: scale(0, 1);
   transform-origin: left;
   transition: all 200ms ease;
   z-index: $zi-buttonOverlay;
@@ -39,5 +39,5 @@
   color: $grey;
 }
 .button:hover:before  {
-  transform: scaleX(1);
+  transform: scale(1, 1);
 }

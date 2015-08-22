@@ -7,6 +7,7 @@
 #   config.output_style = :compact
 # end
 
+
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -70,6 +71,11 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+
+#activate autoprefixer
+activate :autoprefixer do |config|
+  config.browsers = ['> 2%']
 end
 
 #Copy over README
