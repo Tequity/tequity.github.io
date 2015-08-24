@@ -347,13 +347,14 @@ table {
 
 /* line 1, /Users/lily/programming/tequity-website/source/stylesheets/_defaults.scss */
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; }
 
-/* line 4, /Users/lily/programming/tequity-website/source/stylesheets/_defaults.scss */
+/* line 5, /Users/lily/programming/tequity-website/source/stylesheets/_defaults.scss */
 html, body {
   height: 100%; }
 
-/* line 7, /Users/lily/programming/tequity-website/source/stylesheets/_defaults.scss */
+/* line 8, /Users/lily/programming/tequity-website/source/stylesheets/_defaults.scss */
 a {
   color: currentColor;
   text-decoration: none; }
@@ -362,7 +363,7 @@ a {
 .text--centered {
   text-align: center; }
 
-/* line 10, /Users/lily/programming/tequity-website/source/stylesheets/_color.scss */
+/* line 12, /Users/lily/programming/tequity-website/source/stylesheets/_color.scss */
 .highlight {
   background-color: #FAEC5B;
   color: #4E4E4E;
@@ -653,7 +654,8 @@ h1 {
   -webkit-transition: all 200ms ease;
           transition: all 200ms ease;
   cursor: pointer;
-  opacity: .9999; }
+  -webkit-transform: translateX(0);
+          transform: translateX(0); }
 
 /* line 25, /Users/lily/programming/tequity-website/source/stylesheets/_buttons.scss */
 .button:before {
@@ -687,62 +689,72 @@ h1 {
   display: table;
   clear: both; }
 
-/* line 1, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 5, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar {
   width: 100%;
-  z-index: 200; }
+  z-index: 200;
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease; }
   /* line 3, /Users/lily/programming/tequity-website/source/stylesheets/_util.scss */
   .navbar:after {
     content: '';
     display: table;
     clear: both; }
 
-/* line 6, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 13, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar--absolute {
   position: absolute;
   padding: 2.5rem 0;
   background-color: rgba(255, 255, 255, 0);
   color: white; }
 
-/* line 12, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 19, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--fixed {
+  position: fixed;
+  padding: 1rem 0;
+  background-color: white;
+  color: #4E4E4E; }
+
+/* line 25, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-title {
   float: left; }
 
-/* line 15, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 28, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation {
   float: right; }
 
-/* line 18, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 31, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation ul {
   margin: 0;
   padding: 0; }
 
-/* line 22, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 35, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation ul, .navbar-navigation li {
   display: block; }
   @media screen and (min-width: 48em) {
-    /* line 22, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 35, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar-navigation ul, .navbar-navigation li {
       display: inline-block; } }
 
-/* line 28, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 41, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation li {
   position: relative; }
 
-/* line 31, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 44, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation a {
   display: block;
   padding: 1.25rem 12.5%;
   position: relative;
-  opacity: .99; }
+  -webkit-transform: translateX(0);
+          transform: translateX(0); }
   @media screen and (min-width: 48em) {
-    /* line 31, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 44, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar-navigation a {
       display: inline;
       padding: 0;
       opacity: 1; } }
 
-/* line 44, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 56, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation a::after {
   content: '';
   width: 100%;
@@ -758,34 +770,44 @@ h1 {
   left: 0;
   z-index: -100; }
   @media screen and (min-width: 48em) {
-    /* line 44, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 56, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar-navigation a::after {
-      content: unset; } }
+      top: 100%;
+      -webkit-transform-origin: center;
+              transform-origin: center;
+      z-index: unset;
+      border-top: .1em solid currentColor;
+      background-color: transparent !important; } }
 
-/* line 59, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 75, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation a:hover::after,
 .navbar-navigation a:active::after {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1); }
 
-/* line 63, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 79, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation li:nth-child(3n + 1) > a::after {
   background-color: #7550EC; }
 
-/* line 66, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 82, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation li:nth-child(3n + 2) > a::after {
   background-color: #0DEFC7; }
 
-/* line 69, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 85, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation li:nth-child(3n) > a::after {
   background-color: #FAEC5B; }
 
-/* line 74, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 89, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation a:not(:last-child) ~ ul a::before {
   content: '';
   padding-left: 12.5%; }
+  @media screen and (min-width: 48em) {
+    /* line 89, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    .navbar-navigation a:not(:last-child) ~ ul a::before {
+      content: unset;
+      padding-left: 0; } }
 
-/* line 78, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 98, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation > ul {
   position: absolute;
   -webkit-transform: translateX(100%);
@@ -799,7 +821,7 @@ h1 {
   background-color: white;
   color: #4E4E4E; }
   @media screen and (min-width: 48em) {
-    /* line 78, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 98, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar-navigation > ul {
       display: inline-block;
       position: static;
@@ -810,11 +832,72 @@ h1 {
               transform: translateX(0%);
       overflow: visible; } }
 
-/* line 98, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+@media screen and (min-width: 48em) {
+  /* line 119, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar-navigation > ul > li:not(:last-child) {
+    padding: 0 1rem; } }
+
+/* line 125, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation a:not(:last-child) ~ ul {
   display: none; }
+  @media screen and (min-width: 48em) {
+    /* line 125, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    .navbar-navigation a:not(:last-child) ~ ul {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: #E1F1EE;
+      color: #4E4E4E;
+      padding: .5rem 1.25rem; } }
 
-/* line 102, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+@media screen and (min-width: 48em) {
+  /* line 136, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar-navigation a:not(:last-child) ~ ul > li {
+    padding: .5rem 0; } }
+
+@media screen and (min-width: 48em) {
+  /* line 144, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar--absolute a:not(:last-child)::after {
+    content: '';
+    padding-top: 1.25rem; } }
+
+@media screen and (min-width: 48em) {
+  /* line 150, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar--fixed a:not(:last-child)::after {
+    content: '';
+    padding-top: 1rem;
+    background-color: transparent; } }
+
+@media screen and (min-width: 48em) {
+  /* line 157, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar--absolute a:not(:last-child) ~ ul {
+    margin-top: 0.625rem; } }
+
+@media screen and (min-width: 48em) {
+  /* line 162, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar--fixed a:not(:last-child) ~ ul {
+    margin-top: 1rem; } }
+
+/* line 169, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar-navigation a.navigation--nested--show:not(:last-child) ~ ul {
+  display: block; }
+  @media screen and (min-width: 48em) {
+    /* line 169, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    .navbar-navigation a.navigation--nested--show:not(:last-child) ~ ul {
+      display: none; } }
+
+@media screen and (min-width: 48em) {
+  /* line 177, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar-navigation a:hover:not(:last-child) ~ ul,
+  .navbar-navigation a:not(:last-child) ~ ul:hover {
+    display: block; } }
+
+@media screen and (min-width: 48em) {
+  /* line 186, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  .navbar-navigation a::after:hover:not(:last-child) ~ ul {
+    display: block; } }
+
+/* line 193, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-navigation a:not(:last-child):before {
   content: '';
   position: absolute;
@@ -828,22 +911,21 @@ h1 {
   border-style: solid;
   border-width: .5rem .5rem 0 .5rem;
   border-color: currentColor transparent transparent transparent; }
-  @media screen and (min-width: 60em) {
-    /* line 102, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+  @media screen and (min-width: 48em) {
+    /* line 193, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar-navigation a:not(:last-child):before {
       margin-right: -1.25rem; } }
 
-/* line 120, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 210, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar--active.navbar--absolute {
-  background-color: white;
-  color: #7550EC; }
+  background-color: white; }
   @media screen and (min-width: 48em) {
-    /* line 120, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 210, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar--active.navbar--absolute {
       background-color: rgba(255, 255, 255, 0);
       color: white; } }
 
-/* line 128, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 217, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar--active .navbar-navigation > ul {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
@@ -851,15 +933,15 @@ h1 {
           transition: transform 400ms ease, width 1ms linear;
   width: 75%; }
   @media screen and (min-width: 30em) {
-    /* line 128, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 217, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar--active .navbar-navigation > ul {
       width: 50%; } }
   @media screen and (min-width: 48em) {
-    /* line 128, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 217, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar--active .navbar-navigation > ul {
       width: 100%; } }
 
-/* line 141, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 229, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar-overlay {
   height: 100%;
   width: 100%;
@@ -868,44 +950,203 @@ h1 {
   display: none;
   z-index: 100; }
 
-/* line 150, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 237, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar.navbar--active + .navbar-overlay {
   display: block; }
   @media screen and (min-width: 48em) {
-    /* line 150, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 237, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .navbar.navbar--active + .navbar-overlay {
       display: none; } }
 
-/* line 170, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 258, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .bars {
   cursor: pointer;
-  display: inline-block; }
+  display: inline-block;
+  padding: 0.5rem 0;
+  background: transparent;
+  border: 0;
+  outline: none; }
   @media screen and (min-width: 48em) {
-    /* line 170, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+    /* line 258, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
     .bars {
       display: none; } }
 
-/* line 177, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 269, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .bar::before,
 .bar,
 .bar::after {
   height: 0.25rem;
-  width: 2.5rem;
-  background-color: #7550EC;
+  width: 1.5rem;
+  background-color: #4E4E4E;
   display: block;
   position: relative; }
 
-/* line 188, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 279, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .navbar--absolute:not(.navbar--active) .bar::before,
 .navbar--absolute:not(.navbar--active) .bar,
 .navbar--absolute:not(.navbar--active) .bar::after {
   background-color: white; }
 
-/* line 194, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+/* line 284, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
 .bar::before,
 .bar::after {
   content: ''; }
 
+/* line 288, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.bar::before {
+  top: -0.5rem; }
+
+/* line 291, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.bar {
+  top: 0; }
+
+/* line 294, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.bar::after {
+  top: 0.25rem; }
+
+/* line 299, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--inactive .bars {
+  -webkit-animation: unspin 100ms forwards ease-in-out;
+          animation: unspin 100ms forwards ease-in-out; }
+
+/* line 302, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--inactive .bar::before {
+  -webkit-animation: unmultiply-top 100ms forwards ease-in-out, grow 100ms 100ms forwards ease-in-out;
+          animation: unmultiply-top 100ms forwards ease-in-out, grow 100ms 100ms forwards ease-in-out; }
+
+/* line 306, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--inactive .bar::after {
+  -webkit-animation: unmultiply-bottom 100ms forwards ease-in-out, grow 100ms 100ms forwards ease-in-out;
+          animation: unmultiply-bottom 100ms forwards ease-in-out, grow 100ms 100ms forwards ease-in-out; }
+
+/* line 310, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--active .bars {
+  -webkit-animation: spin 100ms 100ms forwards ease-in-out;
+          animation: spin 100ms 100ms forwards ease-in-out; }
+
+/* line 313, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--active .bar::before {
+  -webkit-animation: ungrow 100ms forwards ease-in-out, multiply-top 100ms 100ms forwards ease-in-out;
+          animation: ungrow 100ms forwards ease-in-out, multiply-top 100ms 100ms forwards ease-in-out; }
+
+/* line 317, /Users/lily/programming/tequity-website/source/stylesheets/_navbar.scss */
+.navbar--active .bar::after {
+  -webkit-animation: ungrow 100ms forwards ease-in-out, multiply-bottom 100ms 100ms forwards ease-in-out;
+          animation: ungrow 100ms forwards ease-in-out, multiply-bottom 100ms 100ms forwards ease-in-out; }
+
+@-webkit-keyframes grow {
+  0% {
+    -webkit-transform: scaleX(0.16667) rotate(0deg);
+            transform: scaleX(0.16667) rotate(0deg); }
+  100% {
+    -webkit-transform: scaleX(1) rotate(0deg);
+            transform: scaleX(1) rotate(0deg); } }
+
+@keyframes grow {
+  0% {
+    -webkit-transform: scaleX(0.16667) rotate(0deg);
+            transform: scaleX(0.16667) rotate(0deg); }
+  100% {
+    -webkit-transform: scaleX(1) rotate(0deg);
+            transform: scaleX(1) rotate(0deg); } }
+@-webkit-keyframes ungrow {
+  0% {
+    -webkit-transform: scaleX(1) rotate(0deg);
+            transform: scaleX(1) rotate(0deg); }
+  100% {
+    -webkit-transform: scaleX(0.16667) rotate(0deg);
+            transform: scaleX(0.16667) rotate(0deg); } }
+@keyframes ungrow {
+  0% {
+    -webkit-transform: scaleX(1) rotate(0deg);
+            transform: scaleX(1) rotate(0deg); }
+  100% {
+    -webkit-transform: scaleX(0.16667) rotate(0deg);
+            transform: scaleX(0.16667) rotate(0deg); } }
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); } }
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); } }
+@-webkit-keyframes unspin {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); } }
+@keyframes unspin {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); } }
+@-webkit-keyframes multiply-top {
+  0% {
+    -webkit-transform: rotate(90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(90deg) scaleX(0.16667) translateX(0); }
+  100% {
+    -webkit-transform: rotate(90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(90deg) scaleX(0.5) translateX(0.25rem); } }
+@keyframes multiply-top {
+  0% {
+    -webkit-transform: rotate(90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(90deg) scaleX(0.16667) translateX(0); }
+  100% {
+    -webkit-transform: rotate(90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(90deg) scaleX(0.5) translateX(0.25rem); } }
+@-webkit-keyframes unmultiply-top {
+  0% {
+    -webkit-transform: rotate(90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(90deg) scaleX(0.5) translateX(0.25rem); }
+  100% {
+    -webkit-transform: rotate(90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(90deg) scaleX(0.16667) translateX(0); } }
+@keyframes unmultiply-top {
+  0% {
+    -webkit-transform: rotate(90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(90deg) scaleX(0.5) translateX(0.25rem); }
+  100% {
+    -webkit-transform: rotate(90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(90deg) scaleX(0.16667) translateX(0); } }
+@-webkit-keyframes multiply-bottom {
+  0% {
+    -webkit-transform: rotate(-90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(-90deg) scaleX(0.16667) translateX(0); }
+  100% {
+    -webkit-transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem); } }
+@keyframes multiply-bottom {
+  0% {
+    -webkit-transform: rotate(-90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(-90deg) scaleX(0.16667) translateX(0); }
+  100% {
+    -webkit-transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem); } }
+@-webkit-keyframes unmultiply-bottom {
+  0% {
+    -webkit-transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem); }
+  100% {
+    -webkit-transform: rotate(-90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(-90deg) scaleX(0.16667) translateX(0); } }
+@keyframes unmultiply-bottom {
+  0% {
+    -webkit-transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem);
+            transform: rotate(-90deg) scaleX(0.5) translateX(0.25rem); }
+  100% {
+    -webkit-transform: rotate(-90deg) scaleX(0.16667) translateX(0);
+            transform: rotate(-90deg) scaleX(0.16667) translateX(0); } }
 /* line 1, /Users/lily/programming/tequity-website/source/stylesheets/_segment.scss */
 .segment {
   padding: 4rem 0; }
