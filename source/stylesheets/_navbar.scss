@@ -1,13 +1,26 @@
+//variables
+$nav-absolute-padding: 2.5rem;
+$nav-fixed-padding: 1rem;
+
 .navbar {
   @include clearfix;
   width: 100%;
   z-index: $zi-nav;
+  transition: all 200ms ease;
 }
+//Absolute and fixed variants - this is controlled by jQuery.
+//We might want to look at the transparent -> nontransparent transition once we have more pages.
 .navbar--absolute {
   position: absolute;
-  padding: 2.5rem 0;
+  padding: $nav-absolute-padding 0;
   background-color: rgba(255, 255, 255, 0);
   color: white;
+}
+.navbar--fixed  {
+  position: fixed;
+  padding: $nav-fixed-padding 0;
+  background-color: white;
+  color: $grey;
 }
 .navbar-title {
   float: left;
@@ -32,14 +45,13 @@
   display: block;
   padding: 1.25rem 12.5%;
   position: relative;
-  opacity: .99; //See stacking context comment in buttons.scss
+  transform: translateX(0); //See stacking context comment in buttons.scss
   @media #{$media-medium} {
     display: inline;
     padding: 0;
     opacity: 1;
   }
 }
-
 //active state for mobile
 .navbar-navigation a::after {
   content: '';
@@ -53,7 +65,11 @@
   left: 0;
   z-index: $zi-navItemMobile;
   @media #{$media-medium} {
-    content: unset;
+    top: 100%;
+    transform-origin: center;
+    z-index: unset;
+    border-top: .1em solid currentColor;
+    background-color: transparent !important;
   }
 }
 .navbar-navigation a:hover::after,
@@ -69,12 +85,16 @@
 .navbar-navigation li:nth-child(3n) > a::after {
   background-color: $gold;
 }
-
-//add extra padding to nested navs
+//add extra padding to nested navs on mobile
 .navbar-navigation a:not(:last-child) ~ ul a::before  {
   content: '';
   padding-left: 12.5%;
+  @media #{$media-medium} {
+    content: unset;
+    padding-left: 0;
+  }
 }
+//The main navigation element
 .navbar-navigation > ul {
   position: absolute;
   transform: translateX(100%);
@@ -95,9 +115,80 @@
     overflow: visible;
   }
 }
+//Non-nested links get some padding on desktop
+.navbar-navigation > ul > li:not(:last-child) {
+  @media #{$media-medium} {
+    padding: 0 1rem;
+  }
+}
+//Nested navs
 .navbar-navigation a:not(:last-child) ~ ul  {
   display: none;
+  @media #{$media-medium} {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: $light-grey;
+    color: $grey;
+    padding: .5rem 1.25rem;
+  }
 }
+.navbar-navigation a:not(:last-child) ~ ul > li  {
+  @media #{$media-medium} {
+    padding: .5rem 0;
+  }
+}
+//Add extra padding to link to dropdown to extend clickable area.
+//There's some border stuff going on for nav link pseudoelements but this shouldn't
+//cause any problems because the box model <3
+.navbar--absolute a:not(:last-child)::after {
+  @media #{$media-medium} {
+    content: '';
+    padding-top: ($nav-absolute-padding * .5);
+  }
+}
+.navbar--fixed a:not(:last-child)::after  {
+  @media #{$media-medium} {
+    content: '';
+    padding-top: $nav-fixed-padding;
+    background-color: transparent;
+  }
+}
+.navbar--absolute a:not(:last-child) ~ ul {
+  @media #{$media-medium} {
+    margin-top: ($nav-absolute-padding * .25);
+  }
+}
+.navbar--fixed a:not(:last-child) ~ ul {
+  @media #{$media-medium} {
+    margin-top: $nav-fixed-padding;
+  }
+}
+//On mobile, show nested links on tap. On desktop, show on hover.
+//The .navigation--nested--show class is controlled by jQuery.
+.navbar-navigation a.navigation--nested--show:not(:last-child) ~ ul  {
+  display: block;
+  @media #{$media-medium} {
+    display: none;
+  }
+}
+//1) Link to the dropdown
+//2) The dropdown itself
+.navbar-navigation a:hover:not(:last-child) ~ ul,
+.navbar-navigation a:not(:last-child) ~ ul:hover  {
+  @media #{$media-medium} {
+    display: block;
+  }
+}
+//The awkward space between the link and the dropdown
+//Firefox complains when this rule is with the previous two so
+//it gets its own section
+.navbar-navigation a::after:hover:not(:last-child) ~ ul {
+  @media #{$media-medium} {
+    display: block;
+  }
+}
+
 //add arrows next to nested navs
 .navbar-navigation a:not(:last-child):before  {
   content: '';
@@ -111,15 +202,13 @@
   border-style: solid;
   border-width: .5rem .5rem 0 .5rem;
   border-color: currentColor transparent transparent transparent;
-  @media #{$media-large}  {
+  @media #{$media-medium}  {
     margin-right: -1.25rem;
   }
 }
-
 //active state
 .navbar--active.navbar--absolute  {
   background-color: white;
-  color: $purple;
   @media #{$media-medium} {
     background-color: rgba(255, 255, 255, 0);
     color: white;
@@ -136,7 +225,6 @@
     width: 100%;
   }
 }
-
 //overlay
 .navbar-overlay {
   height: 100%;
@@ -146,30 +234,34 @@
   display: none;
   z-index: $zi-navOverlay;
 }
-
 .navbar.navbar--active + .navbar-overlay  {
   display: block;
   @media #{$media-medium} {
     display: none;
   }
 }
-
-//Hamburger menu
+//This is all menu bar stuff.
+//When the class changes from inactive -> active, it folds into a division sign then unfolds into an X.
+//Ya know, because math. +=
 $bar-top: '.bar::before';
 $bar-middle: '.bar';
 $bar-bottom: '.bar::after';
 
 $barHeight: .25rem;
-$barWidth: 2.5rem;
-$barSpacing: .625rem;
-$barRatio: (barHeight / barWidth) + 0; //coerce to unitless value
+$barWidth: 1.5rem;
+$barSpacing: .25rem;
+$barRatio: ($barHeight / $barWidth) + 0; //coerce to unitless value
 $animationSpeed: 200ms;
-$half: animationSpeed / 2;
-$easing: 'ease-in-out';
+$half: $animationSpeed / 2;
+$easing: ease-in-out;
 
 .bars {
   cursor: pointer;
   display: inline-block;
+  padding: ($barHeight + $barSpacing) 0;
+  background: transparent;
+  border: 0;
+  outline: none;
   @media #{$media-medium} {
     display: none;
   }
@@ -179,19 +271,116 @@ $easing: 'ease-in-out';
 #{$bar-bottom}  {
   height: $barHeight;
   width: $barWidth;
-  background-color: $purple;
+  background-color: $grey;
   display: block;
   position: relative;
 }
-
 //Safari has a really lame currentColor bug
 .navbar--absolute:not(.navbar--active) #{$bar-top},
 .navbar--absolute:not(.navbar--active) #{$bar-middle},
 .navbar--absolute:not(.navbar--active) #{$bar-bottom}  {
   background-color: white;
 }
-
 #{$bar-top},
 #{$bar-bottom}  {
   content: '';
+}
+#{$bar-top} {
+  top: -1 * ($barHeight + $barSpacing);
+}
+#{$bar-middle}  {
+  top: 0;
+}
+#{$bar-bottom}  {
+  top: $barSpacing;
+}
+//Inactive state = hamburger
+//Active state = X
+.navbar--inactive .bars {
+  animation: unspin $half forwards $easing;
+}
+.navbar--inactive #{$bar-top} {
+  animation: unmultiply-top $half forwards $easing,
+             grow $half $half forwards $easing;
+}
+.navbar--inactive #{$bar-bottom}  {
+  animation: unmultiply-bottom $half forwards $easing,
+             grow $half $half forwards $easing;
+}
+.navbar--active .bars {
+  animation: spin $half $half forwards $easing;
+}
+.navbar--active #{$bar-top} {
+  animation: ungrow $half forwards $easing,
+             multiply-top $half $half forwards $easing;
+}
+.navbar--active #{$bar-bottom}  {
+  animation: ungrow $half forwards $easing,
+             multiply-bottom $half $half forwards $easing;
+}
+
+//Animation functions and declarations
+@mixin growStart  { transform: scaleX(#{$barRatio}) rotate(0deg); }
+@mixin growEnd  { transform: scaleX(1) rotate(0deg); }
+@mixin spinStart  { transform: rotate(0deg); }
+@mixin spinEnd  { transform: rotate(45deg); }
+@mixin multiply($direction, $time) {
+  $rotation: null;
+  $offset: null;
+  $scaling: null;
+  @if $direction == 'top' {
+    $rotation: 90deg;
+  }
+  @else if $direction == 'bottom' {
+    $rotation: -90deg;
+  }
+  @else {
+    $rotation: 0;
+  }
+  @if $time == 'start'  {
+    $offset: 0;
+    $scaling: $barRatio;
+  }
+  @else if $time == 'end' {
+    //From my codepen: Move left edge to middle of middle rectangle and
+    //take half of the width of the bar and half of the difference
+    //of heights and multiply that all by 1/2. Then cancel out the offset.
+    //Because of scaling, the actual offset is half the value, i.e. multiply all calculations by 2.
+    //If anyone wants to do some order of operations stuff and simplify this calculation, be my guest.
+    $offset:  2 * ((.5 * $barHeight + -.5 * (.5 * $barWidth - $barHeight)) + ($barSpacing));
+    $scaling: .5;
+  }
+  transform: rotate(#{$rotation}) scaleX(#{$scaling}) translateX(#{$offset});
+}
+@keyframes grow {
+  0% { @include growStart; }
+  100% { @include growEnd; }
+}
+@keyframes ungrow {
+  0% { @include growEnd; }
+  100% { @include growStart; }
+}
+@keyframes spin {
+  0% { @include spinStart; }
+  100% { @include spinEnd; }
+}
+@keyframes unspin {
+  0% { @include spinEnd; }
+  100% {@include spinStart; }
+}
+@keyframes multiply-top {
+  0% { @include multiply('top', 'start'); }
+  100% { @include multiply('top', 'end'); }
+}
+@keyframes unmultiply-top {
+  0% { @include multiply('top', 'end'); }
+  100% { @include multiply('top', 'start'); }
+}
+@keyframes multiply-bottom  {
+  0% { @include multiply('bottom', 'start'); }
+  100% {@include multiply('bottom', 'end'); }
+}
+@keyframes unmultiply-bottom  {
+  0% { @include multiply('bottom', 'end'); }
+  100% { @include multiply('bottom', 'start'); }
 }
