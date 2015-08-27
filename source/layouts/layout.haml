@@ -10,8 +10,16 @@
     /Use title if it's in the page YAML frontmatter
     %title= current_page.data.title || "The Middleman"
 
+    //Load Typekit webfonts
+    %script{ :src => '//use.typekit.net/yye7reu.js'}
+    %script try{Typekit.load({ async: true });}catch(e){}
+
     =stylesheet_link_tag "normalize", "all"
-    =javascript_include_tag  "all"
 
   %body{:class => page_classes}
+    //Load Facebook SDK
+    = partial 'partials/nav'
     = yield
+    = partial 'partials/footer'
+    //Load nonblocking Javascript in body for faster load times
+    =javascript_include_tag  "all"

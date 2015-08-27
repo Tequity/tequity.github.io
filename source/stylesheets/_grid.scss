@@ -2,7 +2,8 @@
 
 $column-number: 12;
 $gutter: .3125rem;
-
+//This is probably all ripped off from some open-source project.
+//Only difference is a fluid container
 .container  {
   width: 5 / 6 * 100%;
   margin: auto;
@@ -10,29 +11,33 @@ $gutter: .3125rem;
     width: 80%;
   }
 }
-
-.row:after  {
+.row  {
+  margin-left: $gutter * -.5;
+  margin-right: $gutter * -.5;
+  @media #{$media-medium}  {
+    $gutter: 1.25rem;
+    margin-right: $gutter * -.5;
+    margin-left: $gutter * -.5;
+  }
+}
+.row::after  {
+  @include clearfix;
+}
+.clearfix {
+  //Use when you don't want negative margins
   @include clearfix;
 }
 [class*='columns-'] {
-  padding-right: $gutter;
-  padding-left: $gutter;
+  padding-right: $gutter * .5;
+  padding-left: $gutter * .5;
   @media #{$media-medium}  {
     $gutter: 1.25rem;
-    padding-right: $gutter;
-    padding-left: $gutter;
+    padding-right: $gutter * .5;
+    padding-left: $gutter * .5;
   }
 }
 [class*='columns-']:not(.columns--centered) {
-  padding-right: $gutter;
-  padding-left: 0;
-  @media #{$media-medium}  {
-    $gutter: 1.25rem;
-    padding-right: $gutter;
-  }
-}
-[class*='columns-']:last-of-type:not(.columns--centered)  {
-  padding-right: 0;
+  float: left;
 }
 @for $i from 1 through $column-number  {
   .columns-#{$i} {
@@ -62,4 +67,9 @@ $gutter: .3125rem;
 }
 .columns--centered {
   margin: auto;
+}
+//responsive images
+.image--fluid {
+  max-width: 100%;
+  height: auto;
 }

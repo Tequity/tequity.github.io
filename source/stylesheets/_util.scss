@@ -11,6 +11,9 @@
   top: 50%;
   transform: translateY(-50%);
 }
+@mixin circle {
+  border-radius: 100%;
+}
 //Functions
 @function remify($num) {
   @if unit($num) is "px" or unit($num) is ""  {
@@ -20,7 +23,6 @@
     @return $num
   }
 }
-
 @function emify($num) {
   @if unit($num) is "px" or unit($num) is ""  {
     @return $num / ($num * 0 + 16) + 0em;

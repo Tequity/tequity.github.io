@@ -22,26 +22,8 @@
 @import 'footer';
 @import 'navbar';
 @import 'segment';
-
-
-.welcome-banner-container {
-  width: 100%;
-  background-color: #000;
-  height: 600px;
-  background-image: url("url here"); }
-
-.button-container {
-  width: 270px;
-  height: 30px;
-  margin: 0px auto;
-}
-
-
-.get-involved-container {
-  width: 100%;
-  background-color: #4E689C;
-  height: 300px;
-  background-image: url("url here"); }
+@import 'events';
+@import 'officers';
 
 
 .logo {

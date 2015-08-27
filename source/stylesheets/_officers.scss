@@ -1,0 +1,15 @@
+$officers: 'akhila' 'cecile' 'zach' 'jessica' 'anders' 'manisha' 'lily';
+.officerPhoto {
+  max-width: 50%;
+  width: 50%;
+  padding-top: 50%;
+  display: inline-block;
+  @include circle;
+}
+@each $officer in $officers  {
+  .officerPhoto--#{$officer}  {
+    background-image: url(image_path('officers/#{$officer}.jpg'));
+    background-size: cover;
+    background-position: center;
+  }
+}

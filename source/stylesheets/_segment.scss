@@ -1,6 +1,9 @@
 .segment  {
   padding: 4rem 0;
 }
+.segment--large {
+  padding: 8rem 0;
+}
 .segment--full {
   height: 100%;
   padding: 0;
@@ -8,15 +11,22 @@
 .segment--full .segment-contents {
   @include relative-center;
 }
+//Page specific heading segments
 .segment--main  {
   background: linear-gradient(69deg, rgba($purple, .75), rgba($teal, .75)),
               url(image_path('main-image.jpg')) center no-repeat;
   background-size: cover;
   color: white;
 }
+.segment--about {
+  background: linear-gradient(69deg, rgba($gold, .6), rgba($teal, .75)),
+              url(image_path('about-image.jpg')) center 40% no-repeat;
+  background-size: cover;
+  color: white;
+}
 .segment--white  {
   background-color: white;
-  color: white;
+  color: $grey;
 }
 .segment--teal  {
   background-color: $dark-teal;
@@ -24,5 +34,9 @@
 }
 .segment--purple  {
   background-color: $dark-purple;
+  color: white;
+}
+.segment--grey  {
+  background-color: $grey;
   color: white;
 }

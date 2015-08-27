@@ -1,0 +1,20 @@
+//Events template
+:plain
+  <script type="text/template" class="event--template">
+    <div class="row">
+      <% if (rc) { %>
+        <% _.each(rc, function(evnt) { %>
+          <div class="columns-12 columns-6-medium">
+            <div class="event">
+              <img class="image--fluid" src=<%- evnt.cover.source %> />
+              <h3><%= evnt.name %></h3>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <div class="columns-12">
+          There are no events here. Check our <a href="http://facebook.com/tequityorg">Facebook page</a> for a complete listing of our past events.
+        </div>
+      <% } %>
+    </div>
+  </script>

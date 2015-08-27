@@ -1,21 +1,24 @@
 .navbar.navbar--absolute
   .container
-    .columns-12.columns--centered
-      .navbar-title
-        .logo
-      %nav.navbar-navigation
-        %button.bars
-          .bar
-        %ul
-          %li
-            =link_to "Events", "#events"
-          %li
-            =link_to "About Us", "#about"
-          %li
-            =link_to "Get Involved", "#get-involved"
-            %ul
-              %li
-                =link_to "Students", "#students"
-              %li
-                =link_to "Companies", "#companies"
+    .row
+      .columns-12
+        .navbar-title
+          =link_to 'index.html' do
+            .logo
+          %end
+        %nav.navbar-navigation
+          %button.bars
+            .bar
+          %ul
+            %li
+              =link_to "Events", "#events"
+            %li
+              =link_to "About Us", "about.html"
+            %li
+              =link_to "Get Involved", "#get-involved"
+              %ul
+                %li
+                  =link_to "Students", "#students"
+                %li
+                  =link_to "Companies", "#companies"
 .navbar-overlay
