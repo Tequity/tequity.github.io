@@ -7,86 +7,139 @@
     <meta content='IE=edge,chrome=1' http_equiv='X-UA-Compatible'>
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Tequity</title>
+    <!-- /Load Typekit webfonts -->
+    <script src='//use.typekit.net/yye7reu.js'></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <link href="stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="stylesheets/all.css" rel="stylesheet" type="text/css" />
-    <script src="javascripts/all.js" type="text/javascript"></script>
   </head>
   <body class='index'>
+    <!-- /Load Facebook SDK -->
     <div class='navbar navbar--absolute'>
       <div class='container'>
-        <div class='columns-12 columns--centered'>
-          <div class='navbar-title'>
-            <div class='logo'></div>
+        <div class='row'>
+          <div class='columns-12'>
+            <div class='navbar-title'>
+              <a href="/"><div class='logo'></div>
+              </a>
+              <end></end>
+            </div>
+            <nav class='navbar-navigation'>
+              <button class='bars'>
+                <div class='bar'></div>
+              </button>
+              <ul>
+                <li>
+                  <a href="/events/">Events</a>
+                </li>
+                <li>
+                  <a href="/about/">About Us</a>
+                </li>
+                <li>
+                  <a href="#get-involved">Get Involved</a>
+                  <ul>
+                    <li>
+                      <a href="#students">Students</a>
+                    </li>
+                    <li>
+                      <a href="#companies">Companies</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <nav class='navbar-navigation'>
-            <button class='bars'>
-              <div class='bar'></div>
-            </button>
-            <ul>
-              <li>
-                <a href="#events">Events</a>
-              </li>
-              <li>
-                <a href="#about">About Us</a>
-              </li>
-              <li>
-                <a href="#get-involved">Get Involved</a>
-                <ul>
-                  <li>
-                    <a href="#students">Students</a>
-                  </li>
-                  <li>
-                    <a href="#companies">Companies</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
     <div class='navbar-overlay'></div>
     <div class='segment segment--full segment--main'>
       <div class='segment-contents text--centered container'>
-        <div class='columns-12 columns-8-medium columns--centered'>
-          <h1>Tequity</h1>
-          <div class='subhead'>We are a UC Berkeley student organization promoting the advancement of minority groups in the tech industry.</div>
-          <div class='button-list'>
-            <a class='button'>Learn More</a>
-            <a class='button'>Sponsor</a>
+        <div class='row'>
+          <div class='columns-12 columns-8-medium columns--centered'>
+            <h1>Tequity</h1>
+            <div class='subhead'>We are a UC Berkeley student organization promoting the advancement of minority groups in the tech industry.</div>
+            <div class='button-list'>
+              <a class="button" href="/about/"><span>Learn More</span>
+              </a>
+              <a class='button'>Sponsor</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class='segment segment--teal'>
       <div class='container'>
-        <div class='columns-12 columns--centered text--centered'>
-          <h2 class='highlight'>This is the first sentence of our mission statement.</h2>
-          <div class='subhead'>Try-hard fap viral swag, tofu Truffaut keytar messenger bag selvage. Mumblecore brunch actually cliche. Scenester sustainable meh, artisan 8-bit try-hard heirloom Vice migas. Schlitz YOLO mixtape, tattooed kitsch lumbersexual Blue Bottle banjo pour-over. Bushwick twee polaroid, Helvetica hoodie Kickstarter tofu art party Vice tote bag Pinterest.</div>
+        <div class='row'>
+          <div class='columns-12 text--centered'>
+            <h2 class='highlight'>This is the first sentence of our mission statement.</h2>
+            <div class='subhead'>Try-hard fap viral swag, tofu Truffaut keytar messenger bag selvage. Mumblecore brunch actually cliche. Scenester sustainable meh, artisan 8-bit try-hard heirloom Vice migas. Schlitz YOLO mixtape, tattooed kitsch lumbersexual Blue Bottle banjo pour-over. Bushwick twee polaroid, Helvetica hoodie Kickstarter tofu art party Vice tote bag Pinterest.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='segment segment--white'>
+      <div class='container'>
+        <div class='row'>
+          <div class='columns-12'>
+            <h2>Upcoming Events</h2>
+            <div class='events--current'></div>
+            <!-- /Events template -->
+            <script type="text/template" class="event--template">
+              <div class="row">
+                <% if (rc) { %>
+                  <% _.each(rc, function(evnt) { %>
+                    <div class="columns-12 columns-6-medium">
+                      <a class="event" href=<%- 'https://facebook.com/' + evnt.id %> target="_blank">
+                        <img class="image--fluid event-image" src=<%- evnt.cover.source %> />
+                        <div class="event-text">
+                          <h3><%= evnt.name %></h3>
+                          <div><%= evnt.start_time %></div>
+                          <% if (evnt.place != undefined) { %>
+                            <div><%= evnt.place.name %></div>
+                          <% } %>
+                        </div>
+                      </a>
+                    </div>
+                  <% }); %>
+                <% } else { %>
+                  <div class="columns-12">
+                    There are no events here. Check our <a href="http://facebook.com/tequityorg">Facebook page</a> for a complete listing of our past events.
+                  </div>
+                <% } %>
+              </div>
+            </script>
+          </div>
         </div>
       </div>
     </div>
     <div class='segment segment--purple'>
       <div class='container'>
-        <div class='columns-12 columns--centered text--centered'>
-          <h2>Get Involved</h2>
-          <div class='subhead'>blah blah blah blah blah blah blah</div>
-          <div class='button-list'>
-            <a class='button'>Companies</a>
-            <a class='button'>Students</a>
+        <div class='row'>
+          <div class='columns-12 text--centered'>
+            <h2>Get Involved</h2>
+            <div class='subhead'>Try-hard fap viral swag, tofu Truffaut keytar messenger bag selvage. Mumblecore brunch actually cliche. Scenester sustainable meh, artisan 8-bit try-hard heirloom Vice migas. Schlitz YOLO mixtape, tattooed kitsch lumbersexual Blue Bottle banjo pour-over. Bushwick twee polaroid, Helvetica hoodie Kickstarter tofu art party Vice tote bag Pinterest.</div>
+            <div class='button-list'>
+              <a class='button'>Companies</a>
+              <a class='button'>Students</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <footer class='footer'>
+    <footer class='footer segment segment--grey'>
       <div class='container'>
-        <div class='footer-navigation'>
-          <h4>Students</h4>
-          <ul class='footer-navigation-list'></ul>
-        </div>
-        <div class='footer-contact'>
-          <!-- /I don't know what goes here. E-mail? Social media icons? -->
+        <div class='row'>
+          <div class='footer-navigation columns-12 columns-4-medium'>
+            <strong>Copyright &copy; Tequity 2015</strong>
+          </div>
+          <div class='footer-contact columns-12 columns-8-medium'>
+            <!-- /I don't know what goes here. E-mail? Social media icons? -->
+            <h4>Follow us on:</h4>
+          </div>
         </div>
       </div>
     </footer>
+    <!-- /Load nonblocking Javascript in body for faster load times -->
+    <script src="javascripts/all.js" type="text/javascript"></script>
   </body>
 </html>
