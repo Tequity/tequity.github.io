@@ -12,6 +12,7 @@ $gutter: .3125rem;
   }
 }
 .row  {
+  @include clearfix;
   margin-left: $gutter * -.5;
   margin-right: $gutter * -.5;
   @media #{$media-medium}  {
@@ -19,9 +20,6 @@ $gutter: .3125rem;
     margin-right: $gutter * -.5;
     margin-left: $gutter * -.5;
   }
-}
-.row::after  {
-  @include clearfix;
 }
 .clearfix {
   //Use when you don't want negative margins

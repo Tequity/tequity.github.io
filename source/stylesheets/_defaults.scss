@@ -9,3 +9,9 @@ a { //Set these at a local level
   color: currentColor;
   text-decoration: none;
 }
+hr  {
+  border: 0;
+  height: .125em;
+  background-color: currentColor;
+  margin: 2em 0;
+}

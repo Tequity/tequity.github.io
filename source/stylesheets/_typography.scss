@@ -5,17 +5,37 @@ $header-font-stack: Campton, Futura, 'Century Gothic', sans-serif;
 $header-line-height: 1.1;
 $header-weight: 700;
 
+$subheader-font-stack: $body-font-stack;
+
+//@font-face declarations
+@font-face {
+  font-family: 'Campton';
+  src: font-url('rene_bieder_-_campton_bold_demo-webfont.eot');
+  src: font-url('rene_bieder_-_campton_bold_demo-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('rene_bieder_-_campton_bold_demo-webfont.woff2') format('woff2'),
+       font-url('rene_bieder_-_campton_bold_demo-webfont.woff') format('woff'),
+       font-url('rene_bieder_-_campton_bold_demo-webfont.ttf') format('truetype'),
+       font-url('rene_bieder_-_campton_bold_demo-webfont.svg#camptonbold_demo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body  {
   line-height: $body-line-height;
   font-family: $body-font-stack;
 }
 h1, h2, h3, h4, h5, h6  {
-  font-family: $header-font-stack;
   line-height: $header-line-height;
   font-weight: $header-weight;
   margin: 0;
 }
-
+h1, h2  {
+  font-family: $header-font-stack;
+}
+h3, h4, h5, h6  {
+  font-family: $subheader-font-stack;
+}
 .navbar,
 .button {
   font-family: $header-font-stack;
@@ -29,6 +49,11 @@ h1  {
   text-transform: uppercase;
   letter-spacing: .5rem;
 }
+h2  {
+  font-size: 2rem;
+  margin: .5em 0;
+}
+
 .subhead  {
   font-size: 1.5rem;
 }

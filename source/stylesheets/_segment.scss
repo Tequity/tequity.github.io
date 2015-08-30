@@ -1,6 +1,7 @@
 .segment  {
   padding: 4rem 0;
 }
+//size variants
 .segment--large {
   padding: 8rem 0;
 }
@@ -24,9 +25,22 @@
   background-size: cover;
   color: white;
 }
+.segment--events  {
+  background: linear-gradient(69deg, rgba($gold, .6), rgba($purple, .75)),
+              url(image_path('events-image.jpg')) center 20% no-repeat;
+  background-size: cover;
+  color: white;
+  @media #{$media-large}  {
+    background-position: center 40%;
+  }
+}
+//Background colors
 .segment--white  {
   background-color: white;
   color: $grey;
+}
+.segment--white hr  {
+  background-color: $light-grey;
 }
 .segment--teal  {
   background-color: $dark-teal;

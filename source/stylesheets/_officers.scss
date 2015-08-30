@@ -1,15 +1,21 @@
-$officers: 'akhila' 'cecile' 'zach' 'jessica' 'anders' 'manisha' 'lily';
-.officerPhoto {
-  max-width: 50%;
-  width: 50%;
-  padding-top: 50%;
+$officers: 'akhila' 'cecile' 'zach' 'jessica' 'anders' 'lily';
+.officer  {
+  margin-bottom: 1.875rem;
+}
+.officer-photo {
+  @include rounded-corners;
+  max-width: 100%;
+  width: 100%;
+  padding-top: 100%;
   display: inline-block;
-  @include circle;
 }
 @each $officer in $officers  {
-  .officerPhoto--#{$officer}  {
+  .officer-photo--#{$officer}  {
     background-image: url(image_path('officers/#{$officer}.jpg'));
     background-size: cover;
     background-position: center;
   }
+}
+.officer-bio  {
+  padding: 1.25rem 0;
 }

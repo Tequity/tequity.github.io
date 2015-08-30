@@ -6,7 +6,7 @@ title: About Us | Tequity
     .row
       .columns-12.columns-8-medium.columns--centered
         %h1 About Tequity
-.segment.clearfix
+.segment.segment--white
   .container
     .row
       .columns-12
@@ -18,8 +18,9 @@ title: About Us | Tequity
         .row
           -data.officers.each do |officer|
             .columns-6.columns-4-medium.text--centered
-              .officerPhoto{:class => "officerPhoto--#{officer.classname}"}
-              %div= officer.name
-              %div= officer.role
-              %div= officer.bio
+              .officer
+                .officer-photo{:class => "officer-photo--#{officer.classname}"}
+                .officer-bio
+                  %h3= officer.name
+                  %div= officer.role
 

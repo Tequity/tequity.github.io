@@ -1,7 +1,18 @@
 .event  {
+  @include rounded-corners;
+  display: block;
   background-color: $light-grey;
-  height: 18.75rem;
-  padding: .625rem;
+  height: 25rem;
+  padding: 1.25rem;
   margin-bottom: .9375rem;
   overflow: hidden;
+  transition: all 200ms ease;
+}
+.event:hover  {
+  background-color: $dark-teal;
+  color: white;
+}
+.event-text {
+  padding: 1.25rem .625rem;
+  text-align: center;
 }
