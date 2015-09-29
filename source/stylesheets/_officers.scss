@@ -1,4 +1,4 @@
-$officers: 'akhila' 'cecile' 'zach' 'jessica' 'anders' 'lily';
+$officers: 'akhila' 'cecile' 'zach' 'jessica' 'lily';
 .officer  {
   margin-bottom: 1.875rem;
 }
@@ -12,6 +12,11 @@ $officers: 'akhila' 'cecile' 'zach' 'jessica' 'anders' 'lily';
 @each $officer in $officers  {
   .officer-photo--#{$officer}  {
     background-image: url(image_path('officers/#{$officer}.jpg'));
+    background-size: cover;
+    background-position: center;
+  }
+  .officer-photo--#{$officer}--funny  {
+    background-image: url(image_path('officers/#{$officer}-funny.jpg'));
     background-size: cover;
     background-position: center;
   }

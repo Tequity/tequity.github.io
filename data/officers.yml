@@ -18,10 +18,10 @@
   classname: jessica
   role: Finance
   bio: Hello I am Jessica
-- name: Anders Truong
-  classname: anders
-  role: Events
-  bio: Hello I am Anders
+# - name: Anders Truong
+#   classname: anders
+#   role: Events
+#   bio: Hello I am Anders
 - name: Lily Nguyen
   classname: lily
   role: Media
