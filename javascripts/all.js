@@ -10795,7 +10795,8 @@ window.fbAsyncInit = function() {
       return hour + ':' + minutes + suffix;
     }
     var eventDate = new Date(event.start_time);
-    event.start_time = months[eventDate.getMonth()] + ' ' + eventDate.getDate() + ', ' + twelveHrTime(eventDate);
+    event.start_time = eventDate;
+    event.start_text = months[eventDate.getMonth()] + ' ' + eventDate.getDate() + ', ' + twelveHrTime(eventDate);
     return event;
   }
   var formatEvent = function(event) {
@@ -10818,8 +10819,7 @@ window.fbAsyncInit = function() {
             //Make sure each event is rendered correctly before rendering template
             _.each(events, formatEvent);
             events = _.groupBy(response.data, function(event){
-              var eventDate = new Date(event.start_time);
-              return (eventDate > Date.now());
+              return (event.start_time > Date.now());
             });
             //compile template
             var eventsTemplate = _.template($eventTemplate.html());

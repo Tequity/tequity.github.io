@@ -80,10 +80,10 @@
                 <% _.each(rc, function(evnt) { %>
                   <div class="columns-12 columns-6-medium">
                     <a class="event" href=<%- 'https://facebook.com/' + evnt.id %> target="_blank">
-                      <img class="image--fluid event-image" src=<%- evnt.cover.source %> />
+                      <div class="image--fluid event-image" style="background-image: url('<%- evnt.cover.source %>')"></div>
                       <div class="event-text">
                         <h3><%= evnt.name %></h3>
-                        <div><%= evnt.start_time %></div>
+                        <div><%= evnt.start_text %></div>
                         <% if (evnt.place != undefined) { %>
                           <div><%= evnt.place.name %></div>
                         <% } %>

@@ -1279,6 +1279,13 @@ h2 {
   padding: 1.25rem .625rem;
   text-align: center; }
 
+/* line 19, /Users/lily/programming/tequity-website/source/stylesheets/_events.scss */
+.event-image {
+  width: 100%;
+  padding-top: 50%;
+  background-size: cover;
+  background-position: 50% 50%; }
+
 /* line 2, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
 .officer {
   margin-bottom: 1.875rem; }
@@ -1297,9 +1304,21 @@ h2 {
   background-size: cover;
   background-position: center; }
 
+/* line 18, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
+.officer-photo--akhila--funny {
+  background-image: url("../images/officers/akhila-funny.jpg");
+  background-size: cover;
+  background-position: center; }
+
 /* line 13, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
 .officer-photo--cecile {
   background-image: url("../images/officers/cecile.jpg");
+  background-size: cover;
+  background-position: center; }
+
+/* line 18, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
+.officer-photo--cecile--funny {
+  background-image: url("../images/officers/cecile-funny.jpg");
   background-size: cover;
   background-position: center; }
 
@@ -1309,15 +1328,21 @@ h2 {
   background-size: cover;
   background-position: center; }
 
+/* line 18, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
+.officer-photo--zach--funny {
+  background-image: url("../images/officers/zach-funny.jpg");
+  background-size: cover;
+  background-position: center; }
+
 /* line 13, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
 .officer-photo--jessica {
   background-image: url("../images/officers/jessica.jpg");
   background-size: cover;
   background-position: center; }
 
-/* line 13, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
-.officer-photo--anders {
-  background-image: url("../images/officers/anders.jpg");
+/* line 18, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
+.officer-photo--jessica--funny {
+  background-image: url("../images/officers/jessica-funny.jpg");
   background-size: cover;
   background-position: center; }
 
@@ -1327,7 +1352,13 @@ h2 {
   background-size: cover;
   background-position: center; }
 
-/* line 19, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
+/* line 18, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
+.officer-photo--lily--funny {
+  background-image: url("../images/officers/lily-funny.jpg");
+  background-size: cover;
+  background-position: center; }
+
+/* line 24, /Users/lily/programming/tequity-website/source/stylesheets/_officers.scss */
 .officer-bio {
   padding: 1.25rem 0; }
 
