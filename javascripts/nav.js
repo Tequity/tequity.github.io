@@ -2,6 +2,7 @@ $(function() {
   var $navbar = $('.navbar');
   var $bars = $('.bars, .navbar-overlay');
   var $nestedNav = $('.navbar-navigation a:not(:last-child)');
+  var $logo = $('.logo')
   var toggleActive = function()  {
     //Inactive class is required for CSS animations
     if (!($navbar.hasClass('navbar--active')) && !($navbar.hasClass('navbar--inactive'))) {

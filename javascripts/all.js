@@ -10759,6 +10759,11 @@ return jQuery;
 }.call(this));
 // underscore config
 _.templateSettings.variable = "rc";
+//Toggle active class on focus
+var $emailInput = $('.email .text-input input, .email .text-input textarea');
+$emailInput.on('focusin focusout', function()  {
+  $(this).parent().toggleClass('email--active');
+});
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '466742083508337',
@@ -10841,6 +10846,7 @@ $(function() {
   var $navbar = $('.navbar');
   var $bars = $('.bars, .navbar-overlay');
   var $nestedNav = $('.navbar-navigation a:not(:last-child)');
+  var $logo = $('.logo')
   var toggleActive = function()  {
     //Inactive class is required for CSS animations
     if (!($navbar.hasClass('navbar--active')) && !($navbar.hasClass('navbar--inactive'))) {
