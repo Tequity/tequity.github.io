@@ -34,6 +34,20 @@
     background-position: center 40%;
   }
 }
+.segment--sponsor {
+  background: linear-gradient(69deg, rgba($teal, .6), rgba($purple, .75)),
+              url(image_path('sponsor-image.jpg')) center no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.segment--students {
+  background: linear-gradient(69deg, rgba($gold, .6), rgba($purple, .85)),
+              url(image_path('students-image.jpg')) center no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
 //Background colors
 .segment--white  {
   background-color: white;
@@ -53,4 +67,8 @@
 .segment--grey  {
   background-color: $grey;
   color: white;
+}
+.segment--lightgrey {
+  background-color: $light-grey;
+  color: $grey;
 }

@@ -1,9 +1,8 @@
-%form
+%form.email
   .text-input
-    %input{:type => "text", :name => "name", :placeholder => "Name"}
-  .text-input
-    %input{:type => "text", :name => "email", :placeholder => "Email address"}
+    %input{:type => "text", :name => "email", :placeholder => "Your email address"}
   .text-input
     %input{:type => "text", :name => "subject", :placeholder => "Subject"}
   .text-input
-    %textarea{:type => "text", :name => "subject", :placeholder => "Type your message here..."}
+    %textarea{:type => "text", :name => "subject", :rows => 6, :placeholder => "Type your message here..."}
+  %button{:type => "submit", :class => "button button--teal"} Send

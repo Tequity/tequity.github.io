@@ -1,0 +1,26 @@
+---
+title: Diversity at Cal | Tequity
+---
+.segment.segment--large.segment--students
+  .container.text--centered
+    .row
+      .columns-12.columns-8-medium.columns--centered
+        %h1 Diversity at Cal
+.segment.segment--white
+  .container
+    .row
+      .columns-12
+        %h2 Work with Tequity
+        %p Typewriter wolf PBR, bitters farm-to-table aesthetic trust fund gentrify. Intelligentsia forage fingerstache, banh mi fanny pack iPhone keytar readymade heirloom paleo. Brooklyn four loko trust fund polaroid. Fap brunch skateboard butcher, chambray letterpress Godard YOLO plaid ethical messenger bag. Church-key banh mi fashion axe cardigan, blog brunch put a bird on it plaid jean shorts narwhal aesthetic Brooklyn VHS Echo Park. Sustainable typewriter XOXO farm-to-table. Flannel +1 PBR&B kogi, Pitchfork gastropub four dollar toast banjo Carles.
+        %p Vegan single-origin coffee Godard Austin, drinking vinegar actually Banksy kitsch pickled photo booth Marfa fap four loko whatever asymmetrical. Letterpress skateboard Helvetica asymmetrical cornhole Pinterest. Meditation lo-fi twee Pitchfork sartorial swag pour-over McSweeney's. American Apparel kitsch whatever, chambray leggings Wes Anderson lo-fi twee iPhone Helvetica art party keytar next level. Post-ironic mustache slow-carb, High Life deep v pug Banksy photo booth migas roof party Kickstarter Carles hoodie cray. Gentrify PBR whatever, Kickstarter locavore lumbersexual Thundercats DIY hashtag bitters American Apparel. Food truck church-key Bushwick shabby chic, direct trade pork belly cray hashtag asymmetrical.
+        %hr
+        %h2 Find a Club
+        .row
+          -data.officers.each do |officer|
+            .columns-6.columns-4-medium.text--centered
+              .officer
+                .officer-photo{:class => "officer-photo--#{officer.classname}"}
+                .officer-bio
+                  %h3= officer.name
+                  %div= officer.role
+

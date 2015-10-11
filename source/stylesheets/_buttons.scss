@@ -14,7 +14,7 @@
   padding: .5rem 1.5rem;
   border: .125rem solid white;
   position: relative;
-  transition: all 200ms ease;
+  transition: color 200ms ease;
   cursor: pointer;
   // This line creates a new stacking context for the button.
   // Therefore, negative z-indexed children (including pseudo-elements) aren't rendered behind
@@ -22,7 +22,7 @@
   // See https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context
   transform: translateX(0);
 }
-.button:before {
+.button::before {
   content: '';
   background-color: white;
   width: 100%;
@@ -38,6 +38,19 @@
 .button:hover {
   color: $grey;
 }
-.button:hover:before  {
+.button:hover::before  {
   transform: scale(1, 1);
+}
+
+/*Color specific buttons*/
+.button--teal {
+  border-color: $dark-teal;
+  color: $dark-teal;
+  background-color: white;
+}
+.button--teal::before {
+  background-color: $dark-teal;
+}
+.button--teal:hover {
+  color: white;
 }

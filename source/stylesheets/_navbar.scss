@@ -8,6 +8,7 @@ $nav-fixed-padding: 1rem;
   z-index: $zi-nav;
   transition: all 200ms ease;
 }
+
 //Absolute and fixed variants - this is controlled by jQuery.
 //We might want to look at the transparent -> nontransparent transition once we have more pages.
 .navbar--absolute {
@@ -21,6 +22,24 @@ $nav-fixed-padding: 1rem;
   padding: $nav-fixed-padding 0;
   background-color: white;
   color: $grey;
+}
+.logo {
+  background: url('../images/tequity-logo-75.png') no-repeat;
+  background-size: 100%;
+  width: remify(75px / 2);
+  height: remify(34px / 2);
+}
+.navbar--fixed .logo {
+  background: url('../images/tequity-logo-75-purple.png') no-repeat;
+  background-size: 100%;
+}
+.navbar--active .logo {
+  background: url('../images/tequity-logo-75-purple.png') no-repeat;
+  background-size: 100%;
+  @media #{$media-medium} {
+    background: url('../images/tequity-logo-75.png') no-repeat;
+    background-size: 100%;
+  }
 }
 .navbar-title {
   float: left;
@@ -271,7 +290,7 @@ $easing: ease-in-out;
 #{$bar-bottom}  {
   height: $barHeight;
   width: $barWidth;
-  background-color: $grey;
+  background-color: $purple;
   display: block;
   position: relative;
 }

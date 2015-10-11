@@ -1,0 +1,52 @@
+form  {
+  width: 100%;
+}
+
+.text-input {
+  margin: 1.5em 0;
+  position: relative;
+}
+
+.text-input input,
+.text-input textarea {
+  width: 100%;
+  border: .25rem solid $light-grey;
+  color: inherit;
+  border-radius: .25rem;
+  padding: .5rem .75rem;
+  position: relative;
+  z-index: $zi-2;
+}
+
+
+
+//CSS doesn't support rounded borders with a gradient background. This is a hack.
+$email-border-thickness: .125rem;
+.email .text-input input,
+.email .text-input textarea  {
+  border: 0;
+  border-radius: $email-border-thickness;
+  resize: none;
+}
+.email .text-input::after  {
+  content: '';
+  position: absolute;
+  top: -1 * $email-border-thickness;
+  bottom: -1 * $email-border-thickness;
+  left: -1 * $email-border-thickness;
+  right: -1 * $email-border-thickness;
+  background: linear-gradient(rgba($dark-teal, .4), rgba($dark-teal, .4));
+  z-index: $zi-1;
+  border-radius: .25rem;
+}
+
+.email .text-input.email--active::after  {
+  content: '';
+  background: linear-gradient(69deg, rgba($teal, .8), rgba($purple, .75));
+}
+
+.email .text-input input:focus,
+.email .text-input textarea:focus,
+.email button:focus {
+  outline: 0;
+}

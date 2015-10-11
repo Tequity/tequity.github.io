@@ -19,16 +19,10 @@
 @import 'grid';
 
 @import 'buttons';
+@import 'forms';
 @import 'footer';
 @import 'navbar';
 @import 'segment';
 @import 'events';
 @import 'officers';
 
-
-.logo {
-  background: url('../images/tequity-logo-75.png') no-repeat;
-  background-size: 100%;
-  width: remify(75px / 2);
-  height: remify(34px / 2);
-}
