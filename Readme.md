@@ -8,10 +8,10 @@ This is the Github repo for our website.
    
    This application runs on a Ruby Gem called Middleman. If you don't have it, follow installation instruction below:
    
-        **For Windows**:
+         For Windows:
             [Middle Windows Installation](http://brettklamer.com/diversions/non-statistical/install-middleman-on-windows/)
             
-        **For Mac**:
+         For Mac:
             [Middle Mac Installation](https://middlemanapp.com/basics/install/)
             
         
